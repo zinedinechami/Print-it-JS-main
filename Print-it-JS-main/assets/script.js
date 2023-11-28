@@ -1,3 +1,4 @@
+
 const slides = [
 	{
 		"image":"slide1.jpg",
@@ -17,9 +18,9 @@ const slides = [
 	}
 ]
 
-
-let fleche_gauche = document.querySelector("#banner .arrow_left").addEventListener("click", goleft)
+// etape 2 ajoutez des event listeners au fleches
+let fleche_gauche = document.querySelector("#banner .arrow_left").addEventListener("click")
 console.log (fleche_gauche)
 
-let fleche_droite = document.querySelector("#banner .arrow_right").addEventListener("click", goright)
+let fleche_droite = document.querySelector("#banner .arrow_right").addEventListener("click")
 console.log (fleche_droite)
