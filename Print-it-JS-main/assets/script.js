@@ -37,7 +37,11 @@ console.log ("fleche_gauche")
 
 let banner_img = document.querySelector ("#banner .banner-img")
 
+let banner_tagLine = document.querySelector ("#banner .tagLine")
+
 
 function changeImage () { 
 	banner_img.setAttribute("src", "./assets/images/slideshow/slide2.jpg");
+	document.querySelector ("#banner .tagLine").innerHTML = "Tirages haute définition grand format <span>pour vos bureaux et events</span>" ;
+
 }
