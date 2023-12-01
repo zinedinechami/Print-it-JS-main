@@ -18,6 +18,20 @@ const slides = [
 	}
 ]
 
+// etape 4
+let banner_img = document.querySelector ("#banner .banner-img")
+
+let banner_tagLine = document.querySelector ("#banner .tagLine")
+
+let bullet_point = document.querySelector (".dot-1")
+
+function changeImage () { 
+	banner_img.setAttribute("src", "./assets/images/slideshow/slide2.jpg");
+	document.querySelector ("#banner .tagLine").innerHTML = "Tirages haute définition grand format <span>pour vos bureaux et events</span>" ; 
+}
+
+
+
 // etape 2 ajoutez des event listeners au fleches
 let fleche_droite = document.querySelector("#banner .arrow_right") ;
 
@@ -27,21 +41,7 @@ fleche_droite.addEventListener("click", changeImage );
 
 let fleche_gauche = document.querySelector("#banner .arrow_right") ;
 
-fleche_gauche.addEventListener("click", () => {  
-	
-console.log ("fleche_gauche") 
-});
+fleche_gauche.addEventListener("click", changeImage );
 
 
-// etape 4
 
-let banner_img = document.querySelector ("#banner .banner-img")
-
-let banner_tagLine = document.querySelector ("#banner .tagLine")
-
-
-function changeImage () { 
-	banner_img.setAttribute("src", "./assets/images/slideshow/slide2.jpg");
-	document.querySelector ("#banner .tagLine").innerHTML = "Tirages haute définition grand format <span>pour vos bureaux et events</span>" ;
-
-}
