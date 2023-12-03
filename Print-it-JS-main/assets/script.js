@@ -26,31 +26,30 @@ const bulletPoints = [
 	"dot-1", "dot-2", "dot-3","dot-4",
 ]
 
-// current image index
-let i = 0;
-
-// event listerners etape 2
+// ETAPE 2 event listerners
 fleche_droite.addEventListener("click", next );
 
 fleche_gauche.addEventListener("click", prev );
 
 
-// etape 4 modifiez le slide au clic du bouton
+// ETAPE 4 modifiez le slide au clic du bouton
 function setImg () {
 	banner_img.setAttribute('src', './assets/images/slideshow/' + images[i]);
+	// le tagLine utlise le meme index que le tableau image pour se referer au bon texte par rapport a l'image
 	banner_tagLine.innerHTML = tagLine[i];
-	bullet_point.classList.add(bulletPoints[i] = "dot_selected");
 }
 
+// array index, indique la position d'un element dans un tableau (les tableau JS sont indexé a partir de 0)
+let i = 0;
 
-// etape 5 défilement infini
+// ETAPE 5 défilement infini
 function prev () {
-	// verifier si i est moins ou egal a 0, 0 = slide1
+	// verifie si i est moins ou egal a 0, (0 = slide1.jpg)
 	if (i <= 0 ){
-		// si c'est true i est fixé au dernier index du tableau images
+		// si c'est true, i est fixé au dernier index du tableau images
 		i = images.length - 1;
 	} else {
-		// si i est plus grand que 0, on le soustrait de 1
+		// si i est plus grand que 0, on le decremente de 1
 	i--; }
 	// on appelle cet function pour mettre a jour l'image correspondant a l'index du tableau dictée par la valeur de i
 	return setImg();
@@ -62,7 +61,7 @@ function next () {
 		// si c'est true, on fixe -1 au i pour revenir au premier index du tableau
 		i = -1; 
 	}
-	// puis on additione 1 au i pour se deplacer au prochain index
+	// puis on ajoute un increment de 1 au i pour se deplacer au prochain index
 	i++;
 	// on appelle cet function pour mettre a jour l'image correspondant a l'index du tableau dictée par la valeur de i
 	return setImg();
