@@ -24,52 +24,51 @@ const tagLine = [
 
 
 
-// ETAPE 2 event listerners
+// Event listerners pour les fleches
 fleche_droite.addEventListener("click", next );
 
 fleche_gauche.addEventListener("click", prev );
 
 
 
-// ETAPE 4 modifiez le slide au clic du bouton
-function setImg () {
-	banner_img.setAttribute('src', './assets/images/slideshow/' + images[i]);
-	// le tagLine utlise le meme index que le tableau image pour se referer au bon texte par rapport a l'image
-	banner_tagLine.innerHTML = tagLine[i];
-	// creation d'une nouvelle index pour les bullet point, si d est inférieur la longeur de la variable dots, on incremente le retrait de la class dot_selected de 1
-	for (let d = 0; d < dots.length; d++) {
-        dots[d].classList.remove("dot_selected");
-    }
-	// (la condition precedente sert a ce que seulement un bullet point change de couleur par slide) met a jour le bullet point part rapport a l'index i correspondant a l'image
-	dots[i].classList.add("dot_selected");
-}
-
-
-// array index, indique la position d'un element dans un tableau (les tableau JS sont indexé a partir de 0)
+// Array index, indiquant la position d'un element dans un tableau (les tableau JS sont indexé a partir de 0)
 let i = 0;
 
 
-// ETAPE 5 défilement infini
+// Défilement infini grace au conditions
 function prev () {
-	// verifie si i est moins ou egal a 0, (0 = slide1.jpg)
-	if (i <= 0 ){
-		// si c'est true, i est fixé au dernier index du tableau images
-		i = images.length - 1;
-	} else {
-		// si i est plus grand que 0, on le decremente de 1
-	i--; }
-	// on appelle cet function pour mettre a jour l'image correspondant a l'index du tableau dictée par la valeur de i
+	// on declaire que si l'index des images est moins que 0
+	if (i <= 0 ) i = images.length; 
+	// on le decrement de 1 pour revenir au dernier index du tableau
+	i--; 
+	// puis on retourne cet fonction pour mettre a jour l'image correspondant à l'index du array images fixée par la variable i
 	return setImg();
 }
 
+
 function next () { 
-	// verifier si le i est plus ou egal au dernier index du tabelau
-	if ( i >= images.length-1) {
-		// si c'est true, on fixe -1 au i pour revenir au premier index du tableau
-		i = -1; 
-	}
-	// puis on ajoute un increment de 1 au i pour se deplacer au prochain index
+	// si l'index i est supérieur au dernier index du tableau, on fixe -1 pour revenir au premier index du tableau
+	if ( i >= images.length-1) i = -1; 
+	// on l'incremente de 1 pour aller se déplacer au prochain index du tableau à partir du premier index
 	i++;
-	// on appelle cet function pour mettre a jour l'image correspondant a l'index du tableau dictée par la valeur de i
+	// puis on retourne cet fonction pour mettre a jour l'image correspondant à l'index du array images fixée par la variable i
 	return setImg();
 } ;
+
+
+
+// Modifiez le slide au clic du bouton
+function setImg () {
+	banner_img.setAttribute('src', './assets/images/slideshow/' + images[i]);
+	// tagLine utlise le meme index que le tableau image pour se referer au bon texte par rapport a l'image
+	banner_tagLine.innerHTML = tagLine[i];
+	// for loop
+	// d'abord on initialise une index pour les dots
+	// puis on initialise une condition, si d est inferieur a longeur des dots
+	// si la condition est vrai on incremente l'index pour retirer la classe dot selected
+	for (let d = 0; d < dots.length; d++) {
+        dots[d].classList.remove("dot_selected");
+    }
+	// met a jour le bullet point part rapport a l'index i correspondant a l'image
+	dots[i].classList.add("dot_selected");
+}
