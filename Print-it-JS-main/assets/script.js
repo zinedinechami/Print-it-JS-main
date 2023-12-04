@@ -38,7 +38,7 @@ function setImg () {
 	banner_tagLine.innerHTML = tagLine[i];
 	// creation d'une nouvelle index pour les bullet point, si d est inférieur la longeur de la variable dots, on incremente le retrait de la class dot_selected de 1
 	for (let d = 0; d < dots.length; d++) {
-        dots[d].classList.replace("dot_selected");
+        dots[d].classList.remove("dot_selected");
     }
 	// (la condition precedente sert a ce que seulement un bullet point change de couleur par slide) met a jour le bullet point part rapport a l'index i correspondant a l'image
 	dots[i].classList.add("dot_selected");
