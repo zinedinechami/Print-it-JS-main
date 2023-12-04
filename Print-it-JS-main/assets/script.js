@@ -7,7 +7,7 @@ let fleche_droite = document.querySelector("#banner .arrow_right") ;
 
 let fleche_gauche = document.querySelector("#banner .arrow_left") ;
 
-let bullet_point = document.querySelector(".dot")
+let dots = document.getElementsByClassName("dot")
 
 // tableaux pour le carrousel
 
@@ -20,10 +20,6 @@ const tagLine = [
 	"Tirages haute définition grand format <span>pour vos bureaux et events</span>", 
 	"Grand choix de couleurs <span>de CMJN aux pantones</span>",
 	"Autocollants <span>avec découpe laser sur mesure</span>",
-]
-
-const bulletPoints = [
-	"dot-1 dot_selected", "dot-2 dot_selected", "dot-3 dot_selected","dot-4 dot_selected",
 ]
 
 
@@ -40,12 +36,18 @@ function setImg () {
 	banner_img.setAttribute('src', './assets/images/slideshow/' + images[i]);
 	// le tagLine utlise le meme index que le tableau image pour se referer au bon texte par rapport a l'image
 	banner_tagLine.innerHTML = tagLine[i];
-	bullet_point.classList.add = bulletPoints[i] ;
+	// creation d'une nouvelle index pour les bullet point, si d est inférieur la longeur de la variable dots, on incremente le retrait de la class dot_selected de 1
+	for (let d = 0; d < dots.length; d++) {
+        dots[d].classList.replace("dot_selected");
+    }
+	// (la condition precedente sert a ce que seulement un bullet point change de couleur par slide) met a jour le bullet point part rapport a l'index i correspondant a l'image
+	dots[i].classList.add("dot_selected");
 }
 
 
 // array index, indique la position d'un element dans un tableau (les tableau JS sont indexé a partir de 0)
 let i = 0;
+
 
 // ETAPE 5 défilement infini
 function prev () {
