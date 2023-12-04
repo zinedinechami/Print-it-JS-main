@@ -7,7 +7,7 @@ let fleche_droite = document.querySelector("#banner .arrow_right") ;
 
 let fleche_gauche = document.querySelector("#banner .arrow_left") ;
 
-let bullet_point = document.querySelector(".dots .dot")
+let bullet_point = document.querySelector(".dot")
 
 // tableaux pour le carrousel
 
@@ -23,8 +23,10 @@ const tagLine = [
 ]
 
 const bulletPoints = [
-	"dot-1", "dot-2", "dot-3","dot-4",
+	"dot-1 dot_selected", "dot-2 dot_selected", "dot-3 dot_selected","dot-4 dot_selected",
 ]
+
+
 
 // ETAPE 2 event listerners
 fleche_droite.addEventListener("click", next );
@@ -32,12 +34,15 @@ fleche_droite.addEventListener("click", next );
 fleche_gauche.addEventListener("click", prev );
 
 
+
 // ETAPE 4 modifiez le slide au clic du bouton
 function setImg () {
 	banner_img.setAttribute('src', './assets/images/slideshow/' + images[i]);
 	// le tagLine utlise le meme index que le tableau image pour se referer au bon texte par rapport a l'image
 	banner_tagLine.innerHTML = tagLine[i];
+	bullet_point.classList.add = bulletPoints[i] ;
 }
+
 
 // array index, indique la position d'un element dans un tableau (les tableau JS sont indexé a partir de 0)
 let i = 0;
