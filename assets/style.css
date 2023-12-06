@@ -131,7 +131,7 @@ header {
 	right: 10px;
 }
 /* Gestion des points du carrousel */
-.dots {
+.dot-section {
 	position: absolute;
 	bottom: 40px;
 	display: flex;
