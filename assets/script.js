@@ -1,7 +1,3 @@
-
-
-// create bullet points
-
 // variables
 
 let banner_img = document.querySelector ("#banner .banner-img") ;
@@ -16,10 +12,11 @@ let dots = document.getElementsByClassName("dot") ;
 
 
 
-// tableaux pour le carrousel
+// array
 
 const slides = [
 	{
+		// object
 		"image":"slide1.jpg",
 		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
 	},
@@ -37,7 +34,7 @@ const slides = [
 	}
 ] ;
 
-
+// add bullet points
 
 slides.forEach(image => {
 	let individualDot = document.createElement('div');
@@ -49,7 +46,7 @@ slides.forEach(image => {
 dots[0].classList.add("dot_selected");
 
 
-// Event listerners pour les fleches
+// event listerners for arrows
 fleche_droite.addEventListener("click", next );
 
 fleche_gauche.addEventListener("click", prev );
