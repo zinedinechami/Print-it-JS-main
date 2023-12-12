@@ -1,5 +1,4 @@
 // variables
-
 let banner_img = document.querySelector ("#banner .banner-img") ;
 
 let banner_tagLine = document.querySelector ("#banner .tagLine") ;
@@ -13,7 +12,6 @@ let dots = document.getElementsByClassName("dot") ;
 
 
 // array
-
 const slides = [
 	{
 		// object
@@ -34,18 +32,22 @@ const slides = [
 	}
 ] ;
 
-// add bullet points
 
-slides.forEach(image => {
+
+// ETAPE 3
+// add bullet points
+for (let y = 0; y < slides.length; y++ ) {
 	let individualDot = document.createElement('div');
 	individualDot.classList.add('dot');
 	let dotSection = document.querySelector(".dot-section")
 	dotSection.appendChild(individualDot);
-});
+} ;
 
 dots[0].classList.add("dot_selected");
 
 
+
+// ETAPE 2
 // event listerners for arrows
 fleche_droite.addEventListener("click", next );
 
@@ -53,12 +55,9 @@ fleche_gauche.addEventListener("click", prev );
 
 
 
-
-
+// ETAPE 5
 // Array index, indiquant la position d'un element dans un tableau (les tableau JS sont indexé a partir de 0)
 let i = 0;
-
-
 // Défilement infini grace au conditions
 function prev () {
 	// on declaire que si l'index des images est moins que 0
@@ -68,8 +67,6 @@ function prev () {
 	// puis on retourne cet fonction pour mettre a jour l'image correspondant à l'index du array images fixée par la variable i
 	return setImg();
 }
-
-
 function next () { 
 	// si l'index i est supérieur au dernier index du tableau, on fixe -1 pour revenir au premier index du tableau
 	if ( i >= slides.length-1) i = -1; 
@@ -81,6 +78,7 @@ function next () {
 
 
 
+// ETAPE 4
 // Modifiez le slide au clic du bouton
 function setImg () {
 	banner_img.setAttribute('src', './assets/images/slideshow/' + slides[i].image);
